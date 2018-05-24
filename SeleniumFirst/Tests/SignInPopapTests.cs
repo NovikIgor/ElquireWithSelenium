@@ -26,23 +26,25 @@ namespace ElquireWithSelenium.Tests
         [Test, Order(1)]
         public void CheckTitleName()
         {
-            var TitleENGName = "Sign In";
-            var TitleRUSName = "Войти";
+            var TitleENGName = "SIGN IN";
+            var TitleRUSName = "ВОЙТИ";
 
             InitializeFront();
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton)).Click();
-            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.TitleSignIn)).Equals(TitleENGName);
-            Thread.Sleep(1000);
+            var engText = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.TitleSignIn)).Text;
+            Assert.AreEqual(TitleENGName, engText);
+            Thread.Sleep(500);
             driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLanguage(1))).Click();
             Thread.Sleep(3000);
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton)).Click();
-            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.TitleSignIn)).Equals(TitleRUSName);
+            var rusText = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.TitleSignIn)).Text;
+            Assert.AreEqual(TitleRUSName, rusText);
             driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLanguage(2))).Click();
             Thread.Sleep(3000);
         }
 
         [Test, Order(2)]
-        public void XButton_Function()
+        public void CheckXButtonFunction()
         {
             InitializeFront();
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton)).Click();
@@ -51,7 +53,7 @@ namespace ElquireWithSelenium.Tests
         }
 
         [Test, Order(3)]
-        public void FaceBookButton_Function()
+        public void CheckFaceBookButtonFunction()
         {
             InitializeFront();
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton)).Click();
@@ -65,7 +67,7 @@ namespace ElquireWithSelenium.Tests
         }
 
         [Test, Order(4)]
-        public void GoogleButton_Function()
+        public void CheckGoogleButtonFunction()
         {
             string email = "test.benamix@gmail.com";
             string pass = "1991SPOKe";
@@ -88,16 +90,20 @@ namespace ElquireWithSelenium.Tests
         }
 
         [Test, Order(5)]
-        public void CheckEnterLoginAndOrLabels()
+        public void CheckAllLabels()
         {
             InitializeFront();
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton)).Click();
-            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLabelForFields(2))).Equals("Enter your e-mail or login");
-            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.OrElementLabel)).Equals("or");
+            Thread.Sleep(500);
+            var login = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLabelForFields(2))).Text.Equals("Enter your e-mail or login");
+            Assert.AreEqual(true, login);
+            Thread.Sleep(500);
+            var or = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.OrElementLabel)).Text.Equals("or");
+            Assert.AreEqual(true, or);
         }
 
         [Test, Order(6)]
-        public void FillFieldEnterEmailNumbers()
+        public void FillFielEmailWithNumbers()
         {
             var nums = "1234567890";
 
@@ -108,7 +114,7 @@ namespace ElquireWithSelenium.Tests
         }
 
         [Test, Order(7)]
-        public void TrySignIn10TimesWithEmptyFields()
+        public void SignIn10TimesWithEmptyFields()
         {
             InitializeFront();
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton)).Click();
@@ -121,7 +127,7 @@ namespace ElquireWithSelenium.Tests
         }
 
         [Test, Order(8)]
-        public void TrySignIn4TimesFillFieldsDifferentEqualsSymbols()
+        public void FillFieldsDifferentSymbols()
         {
             InitializeFront();
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton)).Click();
@@ -174,7 +180,7 @@ namespace ElquireWithSelenium.Tests
         }
 
         [Test, Order(9)]
-        public void SeePassword()
+        public void CheckSeePasswordButton()
         {
             InitializeFront();
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton)).Click();
@@ -191,8 +197,12 @@ namespace ElquireWithSelenium.Tests
         {
             InitializeFront();
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton)).Click();
-            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLabelForlinks(1))).Equals("Don`t have an account?");
-            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLabelForlinks(2))).Equals("Forgot your password?");
+            Thread.Sleep(500);
+            var dontHave = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLabelForlinks(1))).Text.Remove(22);
+            Assert.AreEqual("Don`t have an account?", dontHave);
+            Thread.Sleep(500);
+            var forgot = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLabelForlinks(2))).Text.Remove(21);
+            Assert.AreEqual("Forgot your password?", forgot);
         }
 
         [Test, Order(11)]
@@ -216,7 +226,7 @@ namespace ElquireWithSelenium.Tests
         }
 
         [Test, Order(13)]
-        public void SuccessLogin()
+        public void SuccessAutorization()
         {
             InitializeFront();
             ElquireSetMethods.Click(driver, Selectors.Front.MainPage.SignInButton, null);
@@ -230,9 +240,6 @@ namespace ElquireWithSelenium.Tests
         {
             driver.FindElement(By.XPath(Selectors.Front.CabinetMainPage.ServerTime));
             Thread.Sleep(4000);
-            driver.FindElement(By.XPath("//*[@id='site']//div[8]/div/section/div/div/header/div/div/div/ul/li[4]/a")).Click();
-            driver.FindElement(By.XPath("//*[@id='site']//div[1]/aside/div/div/ul[1]/li[3]/a")).Click();
-            Thread.Sleep(1000);
             CleanUp();
         }
 

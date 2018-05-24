@@ -64,6 +64,7 @@
     <Compile Include="Selectors\Front\Popaps\RestorePassword.cs" />
     <Compile Include="Selectors\Front\Popaps\SignIn.cs" />
     <Compile Include="Selectors\Front\Popaps\SignUp.cs" />
+    <Compile Include="Selectors\Front\TermPage.cs" />
     <Compile Include="Tests\SignInPopapTests.cs" />
     <Compile Include="Tests\SignUpPopapTests.cs" />
   </ItemGroup>
