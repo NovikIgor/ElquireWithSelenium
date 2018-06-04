@@ -13,7 +13,7 @@ namespace ElquireWithSelenium.Selectors.Front.Popaps
 
         //Buttons and links
         public static string XButton = "//*[@id='sidebar-restore']/span";
-        public static string SendLinlToEmailButton = "//*[@id='sidebar-restore']//div[2]/button";
+        public static string SendLinkToEmailButton = "//*[@id='sidebar-restore']//div[2]/button";
         public static string SingInLink = "//*[@id='sidebar-restore']//p[2]/a";
 
         public static string ChooseLanguage(int value)
@@ -24,7 +24,7 @@ namespace ElquireWithSelenium.Selectors.Front.Popaps
 
         //Labels
         public static string EnterLoginLabel = "//*[@id='sidebar-restore']//div[1]/label";
-        public static string RememberPassword = "//*[@id='sidebar-restore']//p[2]";
+        public static string RememberPasswordLabel = "//*[@id='sidebar-restore']//p[2]";
 
         //Field
         public static string EnterEmailField = "//*[@id='sidebar-restore']//div[1]/input";

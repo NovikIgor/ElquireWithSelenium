@@ -239,7 +239,7 @@ namespace ElquireWithSelenium.Tests
         public void Cabinet()
         {
             driver.FindElement(By.XPath(Selectors.Front.CabinetMainPage.ServerTime));
-            Thread.Sleep(4000);
+            LogOut();
             CleanUp();
         }
 
