@@ -17,7 +17,7 @@ namespace ElquireWithSelenium.Tests
 
         string ElquireFrontURL = "http://auth-elquire.htechsprt.com";
         string ElquireAdminURL = "http://176.107.179.147:81/htech-admin";
-        string LoginFront = "Chan_1";
+        string LoginFront = "Chan_5";
         string PasswordFront = "SPOKe";
         string LoginAdmin = "i.novik@benamix.solutions";
         string PasswordAdmin = "1991spokE!";
@@ -61,10 +61,10 @@ namespace ElquireWithSelenium.Tests
             Thread.Sleep(1000);
             var fieldLabel = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.EnterEmailLabel)).Text.Equals("Enter your e-mail");
             Assert.AreEqual(true, fieldLabel);
-
+            Thread.Sleep(1000);
             var linkLabel = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.IAgreeLabel)).Text.Remove(14);
             Assert.AreEqual("I agree to the", linkLabel);
-
+            Thread.Sleep(1000);
             var alreadyLabel = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.HaveAccountLabel)).Text.Remove(24);
             Assert.AreEqual("Already have an account?", alreadyLabel);
         }
@@ -171,7 +171,7 @@ namespace ElquireWithSelenium.Tests
         public void CheckSuccessLogOut()
         {
             driver.FindElement(By.XPath(Selectors.Front.CabinetMainPage.GamburgerMenuButton)).Click();
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
             driver.FindElement(By.XPath(Selectors.Front.CabinetMainPage.LogOutButton)).Click();
             Thread.Sleep(5000);
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignUpButton));

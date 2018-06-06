@@ -17,7 +17,7 @@ namespace ElquireWithSelenium.Tests
 
         string ElquireFrontURL = "http://auth-elquire.htechsprt.com";
         string ElquireAdminURL = "http://176.107.179.147:81/htech-admin";
-        string LoginFront = "Chan_1";
+        string LoginFront = "Chan_5";
         string PasswordFront = "SPOKe";
         string LoginAdmin = "i.novik@benamix.solutions";
         string PasswordAdmin = "1991spokE!";
@@ -70,7 +70,7 @@ namespace ElquireWithSelenium.Tests
         public void CheckGoogleButtonFunction()
         {
             string email = "test.benamix@gmail.com";
-            string pass = "1991SPOKe";
+            string pass = "SPOKe1991";
 
             InitializeFront();
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton)).Click();
@@ -94,10 +94,10 @@ namespace ElquireWithSelenium.Tests
         {
             InitializeFront();
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton)).Click();
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
             var login = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLabelForFields(2))).Text.Equals("Enter your e-mail or login");
             Assert.AreEqual(true, login);
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
             var or = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.OrElementLabel)).Text.Equals("or");
             Assert.AreEqual(true, or);
         }

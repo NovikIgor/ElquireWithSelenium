@@ -17,7 +17,7 @@ namespace ElquireWithSelenium.Tests
 
         string ElquireFrontURL = "http://auth-elquire.htechsprt.com";
         string ElquireAdminURL = "http://176.107.179.147:81/htech-admin";
-        string LoginFront = "Chan_1";
+        string LoginFront = "Chan_5";
         string PasswordFront = "SPOKe";
         string LoginAdmin = "i.novik@benamix.solutions";
         string PasswordAdmin = "1991spokE!";
@@ -127,15 +127,14 @@ namespace ElquireWithSelenium.Tests
         [Test, Order(5)]
         public void CheckSuccessSendEmail()
         {
-            driver.FindElement(By.XPath(Selectors.Front.Popaps.RestorePassword.EnterEmailField)).SendKeys("Chan_1");
+            driver.FindElement(By.XPath(Selectors.Front.Popaps.RestorePassword.EnterEmailField)).SendKeys("Chan_5");
             Thread.Sleep(500);
             driver.FindElement(By.XPath(Selectors.Front.Popaps.RestorePassword.SendLinkToEmailButton)).Click();
-
-
-
-            var free = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.EmailExistOrFreeLabel)).Text.Equals("Free email");
-            Assert.AreEqual(true, free);
-
+            Thread.Sleep(1500);
+            driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton));
+            //var free = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.EmailExistOrFreeLabel)).Text.Equals("Free email");
+            //Assert.AreEqual(true, free);
+            driver.Close();
         }
 
 
