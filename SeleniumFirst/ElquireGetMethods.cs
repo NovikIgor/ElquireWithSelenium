@@ -27,7 +27,5 @@ namespace ElquireWithSelenium
                 return new SelectElement(driver.FindElement(By.Name(element))).AllSelectedOptions.SingleOrDefault().Text;
             else return String.Empty;
         }
-
-
     }
 }

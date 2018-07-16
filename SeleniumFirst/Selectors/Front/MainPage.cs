@@ -20,8 +20,5 @@ namespace ElquireWithSelenium.Selectors.Front
             return select;
         }
         public static string InvestButton = "//*[@id='section0']//div[2]//div/p[4]/button";
-
-
-
     }
 }

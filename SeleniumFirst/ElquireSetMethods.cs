@@ -51,7 +51,5 @@ namespace ElquireWithSelenium
             //if (elementType == "Name")
             //    new SelectElement(driver.FindElement(By.Name(element))).SelectByText(value);
         }
-
-
     }
 }

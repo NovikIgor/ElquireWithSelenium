@@ -16,7 +16,5 @@ namespace ElquireWithSelenium.Selectors.Other
         
         //Fields
         public static string EnterPaswordField = "//*[@id='password']/div[1]//div[1]/input";
-
-
     }
 }

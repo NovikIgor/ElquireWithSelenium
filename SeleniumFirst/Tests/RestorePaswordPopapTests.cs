@@ -137,7 +137,6 @@ namespace ElquireWithSelenium.Tests
             driver.Close();
         }
 
-
         // HELPERS METHODS
         public void LogOut()
         {

@@ -95,11 +95,6 @@ namespace ElquireWithSelenium.Tests
             CleanUp();
         }
 
-
-
-
-
-
         // HELPERS METHODS
         public void FillAllfields()
         {
@@ -125,6 +120,5 @@ namespace ElquireWithSelenium.Tests
             driver.Close();
             Console.WriteLine("Closed the browser");
         }
-
     }
 }

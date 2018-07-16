@@ -271,7 +271,5 @@ namespace ElquireWithSelenium.Tests
             }
             Console.Read();
         }
-
-
     }
 }
