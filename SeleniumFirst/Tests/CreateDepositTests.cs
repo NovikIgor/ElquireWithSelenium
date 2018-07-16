@@ -121,6 +121,7 @@ namespace ElquireWithSelenium.Tests
         //[TearDown] //Метод, который выполняеться каждый раз после выполнения [Test]
         public void CleanUp()
         {
+            Thread.Sleep(1000);
             driver.Close();
             Console.WriteLine("Closed the browser");
         }
