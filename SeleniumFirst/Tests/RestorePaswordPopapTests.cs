@@ -127,7 +127,7 @@ namespace ElquireWithSelenium.Tests
         [Test, Order(5)]
         public void CheckSuccessSendEmail()
         {
-            driver.FindElement(By.XPath(Selectors.Front.Popaps.RestorePassword.EnterEmailField)).SendKeys("Chan_1");
+            driver.FindElement(By.XPath(Selectors.Front.Popaps.RestorePassword.EnterEmailField)).SendKeys("el504110"); //Chan_1
             Thread.Sleep(500);
             driver.FindElement(By.XPath(Selectors.Front.Popaps.RestorePassword.SendLinkToEmailButton)).Click();
             Thread.Sleep(2500);
