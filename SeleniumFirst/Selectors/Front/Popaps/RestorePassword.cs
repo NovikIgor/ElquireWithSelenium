@@ -8,7 +8,6 @@ namespace ElquireWithSelenium.Selectors.Front.Popaps
 {
     class RestorePassword
     {
-        //-----------------------------------------------------RESTORE PASSWORD popap
         public static string TitleRestorePassword = "//*[@id='sidebar-restore']//p[1]";
 
         //Buttons and links
@@ -18,7 +17,7 @@ namespace ElquireWithSelenium.Selectors.Front.Popaps
 
         public static string ChooseLanguage(int value)
         {
-            var select = $"//*[@id='sidebar - restore']//ul/li[{value}]/a";
+            var select = $"//*[@id='sidebar-restore']//ul/li[{value}]/a";
             return select;
         }
 

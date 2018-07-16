@@ -10,14 +10,15 @@ using OpenQA.Selenium.Interactions; //enter keys;
 
 namespace ElquireWithSelenium.Tests
 {
+    [Order(1)]
     class SignInPopapTests
     {
         //Pre-tests settings
         IWebDriver driver = new ChromeDriver();
 
-        string ElquireFrontURL = "http://auth-elquire.htechsprt.com";
-        string ElquireAdminURL = "http://176.107.179.147:81/htech-admin";
-        string LoginFront = "Chan_5";
+        string ElquireFrontURL = "https://test.elirtex.dev.htechsprt.com";
+        string ElquireAdminURL = "http://94.245.111.205/htech-admin/withdraw";
+        string LoginFront = "el504110"; // Chan_1 
         string PasswordFront = "SPOKe";
         string LoginAdmin = "i.novik@benamix.solutions";
         string PasswordAdmin = "1991spokE!";
@@ -34,13 +35,14 @@ namespace ElquireWithSelenium.Tests
             var engText = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.TitleSignIn)).Text;
             Assert.AreEqual(TitleENGName, engText);
             Thread.Sleep(500);
-            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLanguage(1))).Click();
+            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLanguage(2))).Click();
             Thread.Sleep(3000);
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignInButton)).Click();
             var rusText = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.TitleSignIn)).Text;
             Assert.AreEqual(TitleRUSName, rusText);
-            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLanguage(2))).Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(500);
+            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.ChooseLanguage(3))).Click();
+            Thread.Sleep(6000);
         }
 
         [Test, Order(2)]
@@ -84,7 +86,7 @@ namespace ElquireWithSelenium.Tests
             driver.FindElement(By.XPath(Selectors.Front.Popaps.SignIn.GoogleNewWindowPasswordField)).SendKeys(Keys.Enter);
             Thread.Sleep(1000);
             driver.SwitchTo().Window(driver.WindowHandles.First());
-            Thread.Sleep(6000);
+            Thread.Sleep(7000);
             driver.FindElement(By.XPath(Selectors.Front.CabinetMainPage.ServerTime));
             LogOut();
         }
@@ -249,6 +251,7 @@ namespace ElquireWithSelenium.Tests
         {
             driver.Navigate().GoToUrl(this.ElquireFrontURL);
             Thread.Sleep(1000);
+            //driver.Manage().Window.Maximize();
             //driver.Manage().Window.Position = new System.Drawing.Point(400, 200);
             Console.WriteLine("Opened front URL");
         }

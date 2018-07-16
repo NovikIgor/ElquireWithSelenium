@@ -8,7 +8,6 @@ namespace ElquireWithSelenium.Selectors.Front
 {
     class MainPage
     {
-        //-----------------------------------------------------------MAIN PAGE
         //Buttons
         public static string GamburgerMenuButton = "//*[@id='header']/ul/li[4]/a";
         public static string SignInButton = "//*[@id='header']/ul/li[3]/span/a[2]";
@@ -20,6 +19,7 @@ namespace ElquireWithSelenium.Selectors.Front
             var select = $"//*[@id='header']/ul/li[3]/a[{value}]"; // 1 Main, 2 FAQ, 3 News, 4 Contacts
             return select;
         }
+        public static string InvestButton = "//*[@id='section0']//div[2]//div/p[4]/button";
 
 
 

@@ -8,7 +8,6 @@ namespace ElquireWithSelenium.Selectors.Front.Popaps
 {
     class SignIn
     {
-        //-----------------------------------------------------SIGN IN popap
         public static string TitleSignIn = "//*[@id='sidebar-signin']/div/div/p";
 
         //Buttons and links

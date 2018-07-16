@@ -10,17 +10,18 @@ using OpenQA.Selenium.Interactions; //enter keys;
 
 namespace ElquireWithSelenium.Tests
 {
+    [Order(2)]
     class SignUpPopapTests
     {
         //Pre-tests settings
         IWebDriver driver = new ChromeDriver();
 
-        string ElquireFrontURL = "http://auth-elquire.htechsprt.com";
-        string ElquireAdminURL = "http://176.107.179.147:81/htech-admin";
-        string LoginFront = "Chan_5";
+        string ElquireFrontURL = "https://test.elirtex.dev.htechsprt.com";
+        string ElquireAdminURL = "http://94.245.111.205/htech-admin/withdraw";
+        string LoginFront = "el504110"; // Chan_1
         string PasswordFront = "SPOKe";
         string LoginAdmin = "i.novik@benamix.solutions";
-        string PasswordAdmin = "1991spokE!";
+        string PasswordAdmin = "1991spokE!"; // 1991SPOKe!
         string Symbols300 = "Some text for test! Some text for test! Some text for test! Some text for test! Some text for test! Some text for test! Some text for test! Some text for test! Some text for test! Some text for test! Some text for test! Some text for test! Some text for test! Some text for test! Some text forSome te";
 
         [Test, Order(1)]
@@ -34,13 +35,14 @@ namespace ElquireWithSelenium.Tests
             var engText = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.TitleSignUp)).Text;
             Assert.AreEqual(TitleENGName, engText);
             Thread.Sleep(500);
-            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.ChooseLanguage(1))).Click();
+            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.ChooseLanguage(2))).Click();
             Thread.Sleep(3000);
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignUpButton)).Click();
             var rusText = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.TitleSignUp)).Text;
             Assert.AreEqual(TitleRUSName, rusText);
-            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.ChooseLanguage(2))).Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(500);
+            driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.ChooseLanguage(3))).Click();
+            Thread.Sleep(6000);
         }
 
         [Test, Order(2)]
@@ -59,14 +61,14 @@ namespace ElquireWithSelenium.Tests
             InitializeFront();
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignUpButton)).Click();
             Thread.Sleep(1000);
-            var fieldLabel = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.EnterEmailLabel)).Text.Equals("Enter your e-mail");
+            var fieldLabel = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.EnterEmailLabel)).Text.Equals("Enter your email");
             Assert.AreEqual(true, fieldLabel);
             Thread.Sleep(1000);
-            var linkLabel = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.IAgreeLabel)).Text.Remove(14);
-            Assert.AreEqual("I agree to the", linkLabel);
+            var linkLabel = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.IAgreeLabel)).Text.Remove(12);
+            Assert.AreEqual("I agree with", linkLabel);
             Thread.Sleep(1000);
-            var alreadyLabel = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.HaveAccountLabel)).Text.Remove(24);
-            Assert.AreEqual("Already have an account?", alreadyLabel);
+            var alreadyLabel = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.HaveAccountLabel)).Text.Remove(31);
+            Assert.AreEqual("Do you already have an account?", alreadyLabel);
         }
 
         [Test, Order(4)]
@@ -158,12 +160,12 @@ namespace ElquireWithSelenium.Tests
             Thread.Sleep(1000);
             driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.EnterEmailField)).SendKeys("username" + randomInt + "@gmail.com");
             Thread.Sleep(500);
-            var free = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.EmailExistOrFreeLabel)).Text.Equals("Free email");
+            var free = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.EmailExistOrFreeLabel)).Text.Equals("Email available");
             Assert.AreEqual(true, free);
             driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.IAgreeCheckBox)).Click();
             Thread.Sleep(500);
             driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.SignUpButton)).Click();
-            Thread.Sleep(5000);
+            Thread.Sleep(7000);
             driver.FindElement(By.XPath(Selectors.Front.CabinetMainPage.ServerTime));
         }
 
@@ -187,6 +189,7 @@ namespace ElquireWithSelenium.Tests
             Thread.Sleep(2000);
             var notFree = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.EmailExistOrFreeLabel)).Text.Equals("This email already exists");
             Assert.AreEqual(true, notFree);
+            Thread.Sleep(1000);
         }
 
         [Test, Order(9)]
@@ -219,15 +222,14 @@ namespace ElquireWithSelenium.Tests
             driver.FindElement(By.XPath(Selectors.Front.MainPage.SignUpButton)).Click();
             Thread.Sleep(500);
 
-            var rusLang = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.ChooseLanguage(1))).Text;
+            var rusLang = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.ChooseLanguage(2))).Text;
             Assert.AreEqual("RU", rusLang);
-            var engLang = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.ChooseLanguage(2))).Text;
+            var engLang = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.ChooseLanguage(3))).Text;
             Assert.AreEqual("EN", engLang);
-            var espLang = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.ChooseLanguage(3))).Text;
+            var espLang = driver.FindElement(By.XPath(Selectors.Front.Popaps.SignUp.ChooseLanguage(1))).Text;
             Assert.AreEqual("ES", espLang);
             CleanUp();
         }
-
 
         // HELPERS METHODS
         //[SetUp] //Mетод, который выполняeться каждый раз перед выполнением [Test]
@@ -235,6 +237,7 @@ namespace ElquireWithSelenium.Tests
         {
             driver.Navigate().GoToUrl(this.ElquireFrontURL);
             Thread.Sleep(1000);
+            //driver.Manage().Window.Maximize();
             //driver.Manage().Window.Position = new System.Drawing.Point(400, 200);
             Console.WriteLine("Opened front URL");
         }

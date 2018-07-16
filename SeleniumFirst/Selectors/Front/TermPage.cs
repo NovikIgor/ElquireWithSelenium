@@ -8,12 +8,8 @@ namespace ElquireWithSelenium.Selectors.Front
 {
     class TermPage
     {
-        //-----------------------------------------------------------TERMS PAGE
         public static string TitleTerms = "//*[@id='site']//section/section//div[1]/h1";
-
         //Buttons
-
-
 
     }
 }

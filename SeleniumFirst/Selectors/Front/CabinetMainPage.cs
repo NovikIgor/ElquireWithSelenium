@@ -8,7 +8,6 @@ namespace ElquireWithSelenium.Selectors.Front
 {
     class CabinetMainPage
     {
-        //-----------------------------------------------------------CABINET MAIN PAGE
         //Buttons
         public static string GamburgerMenuButton = "//*[@id='site']//section/div[8]//section//header//ul/li[4]/a";
         public static string LogOutButton = "//*[@id='site']//section/div[1]/aside//ul[2]//span/a";

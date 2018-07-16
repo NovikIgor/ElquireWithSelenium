@@ -21,7 +21,6 @@ namespace ElquireWithSelenium
             Thread.Sleep(1000);
             driver.FindElement(By.XPath(clickElement)).Click();
             Thread.Sleep(1000);
-
         }
 
         public static void EnterText(IWebDriver driver, string element, string value, string elementType)
